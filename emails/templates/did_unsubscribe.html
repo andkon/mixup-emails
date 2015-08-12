@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+{% if email_profile %}
+	{% if email_profile.is_subscribed %}
+	<h2>Weird, there was a problem confirming.</h2>
+	<p>You may have waited way too long. Try pressing the link in a more recent newsletter.</p>
+	{% else %}
+	<h2>You're unsubscribed!<h2>
+	<p>Sorry to see you go! You can always <a href="{% url 'newsletter:latest' %}">check out the newsletter on the site >></a></p>
+	{% endif %}
+{% else %}
+<h2>Weird, there was a problem unsubscribing.</h2>
+<p>We couldn't find that email - <a href="{% url 'newsletter:subscribe' %}">you should subscribe first :)</a></p>
+<p>{{ token }}</p>
+{% endif %}

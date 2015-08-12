@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+{% if error == "already_exists" %}
+<h1>We've already got that e-mail.</h1>
+{% elif form %}
+{{ form.email.errors }}
+{% else %}
+<h1>Wanna join?</h1>
+{% endif %}
+<form action="{% url 'newsletter:subscribe' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Subscribe Now" />
+</form>

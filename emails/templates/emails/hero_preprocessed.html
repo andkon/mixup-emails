@@ -1,0 +1,166 @@
+{% load staticfiles %}
+{% load humanize %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+  <head>
+<!-- If you delete this tag, the sky will fall on your head -->
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>2.WS - The Playlist Club</title>
+  </head>
+  <body bgcolor="#FFFFFF" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; margin: 0; padding: 0;">
+
+<!-- HEADER -->
+<table class="head-wrap" bgcolor="#666" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+		<td class="header container" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+			
+				<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+					<table bgcolor="#666" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><h6 class="collapse" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #3ED88B; font-weight: 900; font-size: 14px; text-transform: uppercase; margin: 0; padding: 0;">Pick an emoji, get the week's best playlists.</h6></td>
+					</tr></table></div>
+				
+		</td>
+		<td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+	</tr></table><!-- /HEADER -->
+	<!-- BODY --><table class="body-wrap" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+		<td class="container" bgcolor="#FFFFFF" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+
+			<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+			<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+
+						<!-- A Real Hero (and a real human being) -->
+						<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;"><a href="{{ domain_name }}"><img src="{{ domain_name }}{% static 'emails/images/Hero.png' %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 100%; margin: 0; padding: 0;" /></a></p><!-- /hero -->
+						
+						<!-- Message panel -->
+						{% if newsletter.message %}
+						<p class="message" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; text-align: center; width: 70%; font-weight: normal; line-height: 1.6; margin: 20px auto; background-color: #AAFFD5; border-radius: 15px; padding: 11px;" align="center">
+							<b style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0; font-size:16px">
+								A message from <img src="{{ domain_name }}{% static 'emails/images/2ws-text.png' %}" style="margin: 0; padding: 0; vertical-align: middle;" /></b>
+							<br/>
+							{{ newsletter.message|safe }}
+						</p>
+						{% endif %}
+
+						<!-- Info panel -->
+						<p class="callout" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 16px; text-align: center; width: 70%; font-weight: normal; line-height: 1.6; margin: 20px auto; padding: 7px;" align="center">
+							<b style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">{{ newsletter.pk|ordinal }} Edition</b> • {{ newsletter.send_date|date:"N j"}}, {{ newsletter.send_date|date:"Y"}} 
+							{% if email_profile %}
+							<br style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" />for {{ email_profile.email }}.
+							<br style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" /><a href="{{ domain_name }}{% url 'newsletter:subscribe' %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; font-weight: bold; margin: 0; padding: 0; font-size: 14px; text-decoration: none;">Not you? »</a>
+							{% endif %}
+							
+						</p>
+						<!-- /Info panel -->
+
+
+
+						{% if playlists %}
+						<table style="border-spacing: 0px; width: 375px; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0px auto 20px; padding: 0; border-style: solid; border-width: 8px; border-color: #AAFFD5;">
+							<tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+						  	{% load static %}
+						  	{% get_static_prefix as STATIC_PREFIX %}
+
+
+					  	{% if email_profile %}
+					  	{% for playlist in playlists %}
+							{% if forloop.counter|divisibleby:5 %}
+								<td style="text-align: center; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" align="center"><a href="{{ domain_name }}{% url 'newsletter:playlist redirect for user' newsletter.pk email_profile.email playlist.playlist.pk %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;"><img src="{{ playlist.emoji_url }}"/></a></td>
+							  </tr>
+							  <tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+						  	{% elif forloop.count == playlists|length %}
+						  		</td>
+						  	{% else %}
+								<td style="text-align: center; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" align="center"><a href="{{ domain_name }}{% url 'newsletter:playlist redirect for user' newsletter.pk email_profile.email playlist.playlist.pk %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;"><img src="{{ playlist.emoji_url }}"/></a></td>
+							{% endif %}
+						{% endfor %}
+
+						{% else %}					  	
+						{% for playlist in playlists %}
+							{% if forloop.counter|divisibleby:5 %}
+								<td style="text-align: center; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" align="center"><a href="{{ domain_name }}{% url 'newsletter:playlist redirect' newsletter.pk playlist.playlist.pk %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;"><img src="{{ playlist.emoji_url }}"/></a></td>
+							  </tr>
+							  <tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+						  	{% elif forloop.count == playlists|length %}
+						  		</td>
+						  	{% else %}
+								<td style="text-align: center; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" align="center"><a href="{{ domain_name }}{% url 'newsletter:playlist redirect' newsletter.pk playlist.playlist.pk %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;"><img src="{{ playlist.emoji_url }}"/></a></td>
+							{% endif %}
+						{% endfor %}
+						{% endif %}	
+						</table>					
+						{% endif %}
+
+						{% if email_profile %}
+						<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 350px; display: block; margin: 0 auto; padding: 15px;">
+						<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">						
+									<h3 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #000; font-weight: 500; font-size: 27px; text-align: center; margin: 0 0 5px; padding: 0;" align="center">Spread the word.</h3>
+								</td>
+							</tr><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<a href="{{ domain_name }}{% url 'newsletter:invite' email_profile.email %}" class="btn" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #FFF; text-decoration: none; font-weight: bold; text-align: center; cursor: pointer; display: block !important; border-radius: 5px; background-image: none !important; background-color: #8F42A0; margin: 0 0 10px; padding: 10px 16px; max-width: 200px;">Invite your friends</a>
+								</td>
+							</tr><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;"><em style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">We only send an email every two weeks (except for Holidays, where we send a bonus set of playlists).</em></p>
+								</td>
+							</tr></table></div>
+						{% else %}
+												<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 350px; display: block; margin: 0 auto; padding: 15px;">
+						<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">						
+									<h3 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #000; font-weight: 500; font-size: 27px; text-align: center; margin: 0 0 5px; padding: 0;" align="center">Get it in your inbox.</h3>
+								</td>
+							</tr><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<a href="{% url 'newsletter:subscribe' %}" class="btn" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #FFF; text-decoration: none; font-weight: bold; text-align: center; cursor: pointer; display: block !important; border-radius: 5px; background-image: none !important; background-color: #8F42A0; margin: 0 0 10px; padding: 10px 16px; max-width: 200px;">Subscribe Now</a>
+								</td>
+							</tr><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;"><em style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">We only send an email every two weeks (except for Holidays, where we send a bonus set of playlists).</em></p>
+								</td>
+							</tr></table></div>
+						{% endif %}
+
+						<p style="text-align: center; font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;" align="center"> 						</p>
+
+												
+						<br style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" /><br style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;" /><!-- social & contact --><table class="social" width="100%" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; background-color: #ebebeb; margin: 0; padding: 0;" bgcolor="#ebebeb"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									
+									<!--- column 1 -->
+									<table align="left" class="column" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 280px; float: left; min-width: 279px; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 15px;">				
+												
+												<h5 class="" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #000; font-weight: 900; font-size: 17px; margin: 0 0 5px; padding: 0;">Connect with Us:</h5>
+												<p class="" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;"><a href="https://twitter.com/2wsclub" class="soc-btn tw" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #FFF; font-size: 12px; text-decoration: none; font-weight: bold; display: block; text-align: center; background-color: #1daced !important; margin: 0 0 10px; padding: 3px 7px;">Twitter</a> </p>
+												
+											</td>
+										</tr></table><!-- /column 1 --><!--- column 2 --><table align="left" class="column" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 280px; float: left; min-width: 279px; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 15px;">				
+																			
+												<h5 class="" style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; line-height: 1.1; color: #000; font-weight: 900; font-size: 17px; margin: 0 0 5px; padding: 0;">Contact Us:</h5>												
+				Email: <strong style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><a href="mailto:andrew@strings.fm" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;">andrew@strings.fm</a></strong>
+				
+											</td>
+										</tr></table><!-- /column 2 --><span class="clear" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block; clear: both; margin: 0; padding: 0;"></span>	
+									
+								</td>
+							</tr></table><!-- /social & contact --></td>
+				</tr></table></div>
+									
+		</td>
+		<td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+	</tr></table><!-- /BODY -->
+	{% if token %}
+	<!-- FOOTER -->
+	<table class="footer-wrap" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; clear: both !important; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+		<td class="container" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+			
+				<!-- content -->
+				<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+				<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+						<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">
+							<a href="http://strings.fm/termsofservice.html" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;">Terms</a> |
+							<a href="http://strings.fm/privacypolicy.html" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;">Privacy</a> |
+							<a href="{{ domain_name }}{% url 'newsletter:unsubscribe' email_profile.email token %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #8F42A0; margin: 0; padding: 0;"><unsubscribe style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">Unsubscribe</unsubscribe></a>
+						</p>
+					</td>
+				</tr></table></div><!-- /content -->
+				
+		</td>
+		<td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+	</tr></table><!-- /FOOTER -->
+	{% endif %}
+</body>
+</html>

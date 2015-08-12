@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+{% if email_profile %}
+	{% if email_profile.is_confirmed %}
+	<h2>You're all set!<h2>
+	<p>You'll get the latest newsletter shortly. Or if you can't wait, <a href="{% url 'newsletter:latest' %}">check it out here >></a></p>
+	{% else %}
+	<h2>Weird, there was a problem confirming.</h2>
+	<p>You may have waited way too long. Try <a href="{% url 'newsletter:resend-confirmation' email_profile.email %}">resending the confirmation email >></a></p>
+	{% endif %}
+{% else %}
+<h2>Weird, there was a problem confirming.</h2>
+<p>We couldn't find that email - <a href="{% url 'newsletter:subscribe' %}">you should subscribe >></a></p>
+{% endif %}

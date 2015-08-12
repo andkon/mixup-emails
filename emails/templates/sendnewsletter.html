@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+<h1>{{ user.username }}, let's send a newsletter ya?</h1>
+<ol>
+	<li><a href="{% url 'newsletter:user newsletter' newsletter.pk 'andrew.konoff@gmail.com' %}">Preview with e-mail</a></li>
+	<li><a href="{% url 'newsletter:newsletter' newsletter.pk %}">Preview without e-mail</a></li>
+	{% if newsletter.subject %}
+	<li><em>Subject</em>: {{ newsletter.subject }}</li>
+	{% else %}
+	<li style='color: red'>No subject</li>
+	{% endif %}
+
+	{% if newsletter.message %}
+	<li><em>Message</em>: {{ newsletter.message }}</li>
+	{% else %}
+	<li style='color: red'>No message</li>
+	{% endif %}
+	<li>{{ subscribers }} people will get this e-mail.</li>
+</ol>
+
+
+<h2>{{ playlists.count }} Playlists:</h2>
+<ol>
+	{% for playlist in playlists %}
+	<li>
+		Position {{ playlist.position }}: <a href="{{ playlist.playlist.url }}">{{ playlist.playlist.title }} on {{ playlist.playlist.get_service_display }}</a>
+	</li>
+	{% endfor %}
+</ol>
+<h2><a href="{% url 'newsletter:confirm-send-test' newsletter.pk %}">Test send newsletter #{{ newsletter.pk }}</a></h2>
+<h2><a href="{% url 'newsletter:confirm-send-celery' newsletter.pk %}">Send Newsletter #{{ newsletter.pk }} with Celery</a></h2>

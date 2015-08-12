@@ -1,0 +1,11 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+<h1>upload your playlists</h1>
+<img src="http://butt.holdings/hold-onto-your-butts.gif" style="padding: 20px"/>
+<form action="{% url 'newsletter:new-newsletter' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>

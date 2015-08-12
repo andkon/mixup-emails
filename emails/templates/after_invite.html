@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+{% if emails %}
+<h2>Awesome - we sent invites to your {{ emails|length }} friends!<h2>
+<p>They should be getting their invites right now.</p>
+{% elif form %}
+<h2>Whoa - there was a problem.</h2>
+{{ form.email.errors }}
+{{ form.errors }}
+{% endif %}

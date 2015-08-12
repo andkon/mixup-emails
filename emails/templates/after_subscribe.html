@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+{% if email_profile %}
+<h2>Awesome - now go confirm!<h2>
+<p>You should be getting an email in your inbox right now.</p>
+{% elif error == "already_sub" %}
+<h3>You already subscribed. <a href="{% url 'newsletter:latest' %}">See the latest newletter here >></a></h2>
+{% elif error == "not_email" %}
+<h2>Hmm... That isn't an e-mail we recognize.</h2>
+<p>Please return and try again.</p>
+{% else %}
+<h2>Hmm... That isn't an e-mail we recognize.</h2>
+<p>Please return and enter a valid e-mail address.</p>
+{% endif %}

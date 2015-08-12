@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+<link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+
+<h1>{{ newsletter.send_task }}</h1>
+<h2>Sent to:</h2>
+<ol>
+{% for sent_email_profile in sent_to %}
+<li>{{ sent_email_profile.email }}</li>
+{% endfor %}
+</ol>
+
+{% if newsletter.send_date %}
+{{ newsletter.send_date }}
+{% else %}
+<p style='color: red'>Not finished</p>
+{% endif %}

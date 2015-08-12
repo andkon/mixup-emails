@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+  <head>
+<!-- If you delete this tag, the sky will fall on your head -->
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>2.WS - The Playlist Club</title>
+  </head>
+  <body bgcolor="#FFFFFF" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; margin: 0; padding: 0;">
+
+<!-- BODY -->
+<table class="body-wrap" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"></td>
+		<td class="container" bgcolor="#FFFFFF" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 0;">
+
+			<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 600px; display: block; margin: 0 auto; padding: 15px;">
+			<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;"><tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+
+						<!-- A Real Hero (and a real human being) -->
+						<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">
+							<a href="http://www.xn--7bi.ws/">
+							<img src="{{ domain_name }}{% static 'emails/images/Hero.png' %}" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 100%; margin: 0; padding: 0;" /></a></p><!-- /hero -->
+						
+						<!-- Message panel -->
+						<p class="message" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; text-align: center; width: 70%; font-weight: normal; line-height: 1.6; margin: 20px auto; background-color: #AAFFD5; border-radius: 15px; padding: 20px;" align="center">
+							
+							{% if email_profile.invited_by %}
+							<b style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0; font-size:16px">
+								You've been invited to <a href="http://www.xn--7bi.ws/"><img src="{{ domain_name }}{% static 'emails/images/2ws-text.png' %}" style="margin: 0; padding: 0; vertical-align: middle;" /></a> by {{ email_profile.invited_by.email }}</b>
+							<br/>
+							Every two weeks, we email you the best playlists on the web. <a href="{{ domain_name }}{% url 'newsletter:latest' %}">Click here to preview the latest newsletter >></a><br/>
+							{% else %}
+							<b style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0; font-size:16px">
+								We need you to confirm your subscription</b>
+							<br/>
+							We promise to never share your email with anyone (not even our moms).
+
+							{% endif %}
+						</p>
+						<div class="content" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; max-width: 350px; display: block; margin: 0 auto; padding: 15px;">
+						<table style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; width: 100%; margin: 0; padding: 0;">
+							<tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+								<td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<a href="{{ domain_name }}{% url 'newsletter:confirm-subscribe' email_profile.email token %}" class="btn" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #FFF; text-decoration: none; font-weight: bold; text-align: center; cursor: pointer; display: block !important; border-radius: 5px; background-image: none !important; background-color: #8F42A0; margin: 0 0 10px; padding: 10px 16px; max-width: 200px;">
+										{% if email_profile.invited_by %}
+										Subscribe Now
+																			</a>
+								</td>
+							</tr>
+							<tr style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;"><td align="center" style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">
+									<p style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;"><em style="font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; margin: 0; padding: 0;">We'll only send you email once every week or two.</em></p>
+								</td>
+							</tr>
+										{% else %}
+										Confirm
+																			</a>
+								</td>
+							</tr>
+										{% endif %}
+						</table>
+						</div>
+					</table>
+				</div>
+			</div>
+		</td>
+	</table>
+</body>
+</html>

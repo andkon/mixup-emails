@@ -58,7 +58,7 @@ def send_newsletter(newsletter_id):
 	newsletter.save()
 
 @shared_task
-def send_to_andrew(newsletter_id):
+def send_to_admins(newsletter_id):
 	"""
 	Let's send everyone their newsletter!
 	1) First, get current subscribers.
